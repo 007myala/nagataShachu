@@ -12,25 +12,46 @@ AFRAME.registerComponent('vidhandler', {
   },
   tick: function(){
     if(this.el.object3D.visible == true){
-      const scn = document.querySelector("#scene");
-      const hMkr = document.querySelector("#hiroMkr");
-      const hMdl = document.querySelector("#hiroMdl");
-      const kMkr = document.querySelector("#kanjiMkr");
-      const kMdl = document.querySelector("#kanjiMdl");
+      const tonyMkr = document.querySelector("#TonyMkr");
+      const naoyaMkr = document.querySelector("#NaoyaMkr");
+      const kiyoshiMkr = document.querySelector("#KiyoshiMkr");
+      const akiMkr = document.querySelector("#AkiMkr");
+      const andrewMkr = document.querySelector("#AndrewMkr");
 
       // Do check for video markers
-      // -Hiro Marker
-      if(hMkr.object3D.visible == true){
+      // -Tony Marker
+      if(tonyMkr.object3D.visible == true){
         mrks[0] = "v";
       } else {
         mrks[0] = "i";
       }
 
-      // -Kanji Marker
-      if(kMkr.object3D.visible == true){
+      // -Naoya Marker
+      if(naoyaMkr.object3D.visible == true){
         mrks[1] = "v";
       } else {
         mrks[1] = "i";
+      }
+
+      // -Kiyoshi Marker
+      if(kiyoshiMkr.object3D.visible == true){
+        mrks[2] = "v";
+      } else {
+        mrks[2] = "i";
+      }
+
+      // -Aki Marker
+      if(akiMkr.object3D.visible == true){
+        mrks[3] = "v";
+      } else {
+        mrks[3] = "i";
+      }
+
+      // -Andrew Marker
+      if(andrewMkr.object3D.visible == true){
+        mrks[4] = "v";
+      } else {
+        mrks[4] = "i";
       }
 
       // How many video markers visible?
@@ -47,9 +68,11 @@ AFRAME.registerComponent('vidhandler', {
         if(!this.toggle){
           this.toggle = true;
           this.video.play();
+          this.video.muted = false;
         }
       } else {
-        this.video.pause();
+        this.video.play();
+        this.video.muted = true;
       }
     } else {
       console.log(tMrks);
