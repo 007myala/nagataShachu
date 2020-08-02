@@ -1,5 +1,4 @@
 var mrks = ["i","i","i","i","i"]; // "i" = not visible and "v" = visible
-var tMrks = 0;
 
 // Video Handler - for when marker is visible or not visible
 AFRAME.registerComponent('vidhandler', {
@@ -33,25 +32,26 @@ AFRAME.registerComponent('vidhandler', {
         mrks[1] = "i";
       }
 
+
       // -Kiyoshi Marker
       if(kMkr.object3D.visible == true){
-        mrks[1] = "v";
+        mrks[2] = "v";
       } else {
-        mrks[1] = "i";
+        mrks[2] = "i";
       }
 
       // -Aki Marker
       if(aMkr.object3D.visible == true){
-        mrks[1] = "v";
+        mrks[3] = "v";
       } else {
-        mrks[1] = "i";
+        mrks[3] = "i";
       }
 
       // -Andrew Marker
       if(sMkr.object3D.visible == true){
-        mrks[1] = "v";
+        mrks[4] = "v";
       } else {
-        mrks[1] = "i";
+        mrks[4] = "i";
       }
 
       // How many video markers visible?
@@ -61,7 +61,6 @@ AFRAME.registerComponent('vidhandler', {
           mrkCount++;
         }
       }
-      tMrks = mrkCount;
       console.log(mrkCount);
 
       if(mrkCount == 1){
@@ -75,9 +74,9 @@ AFRAME.registerComponent('vidhandler', {
         this.video.muted = true;
       }
     } else {
-      console.log(tMrks);
       this.toggle = false;
       this.video.pause();
+      this.video.muted = true;
     }
   }
 });
