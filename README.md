@@ -6,8 +6,11 @@ An AR experience by [CAM Collective](https://collective-cam.carrd.co/#) for the 
 
 ## Build Status
 
+Aug - 01 - 2020
+- Removed the broken codes and fixed the array indexes that were not right. Correct code is in the videoW folder. Other video folders work with either just one video or two at most using the hiro and kanji markers. 
+
 Jul - 30 - 2020
-- Got the video working and able to count the number of videos playing then mute the rest of the videos to handle playing multiple markers at a time 
+- Got the video working and able to count the number of videos playing then mute the rest of the videos to handle playing multiple markers at a time
 
 Jul - 21 - 2020
 - Got the video working and testing with multiple markers - using presets "hiro" and "kanji"
