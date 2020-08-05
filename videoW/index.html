@@ -75,6 +75,12 @@
                     webkit-playsinline
                     playsinline>
                 </video>
+
+                <!-- Taiko Model-->
+                <a-asset-item
+                    id="animated-asset"
+                    src="assets/m/asset.gltf">
+                </a-asset-item>
             </a-assets>
 
             <a-marker
@@ -151,6 +157,20 @@
                     rotation="-90 0 0">
                 </a-video>
             </a-marker>
+
+            <a-marker
+                type="pattern"
+                preset="custom"
+                url="assets/m/marker.patt"
+                id="markerA">
+                <a-entity
+                    id="bowser-model"
+                    scale="0.020080905977123838 0.020080905977123838 0.020080905977123838"
+                    rotation="90 180 360"
+                    gltf-model="#animated-asset">
+                </a-entity>
+            </a-marker>
+
             <a-entity camera></a-entity>
         </a-scene>
         <script>
