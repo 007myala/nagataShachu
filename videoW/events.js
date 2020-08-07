@@ -1,3 +1,31 @@
+// Handle the Loading Screen by creating a listener for the scene's loaded event
+document.addEventListener('DOMContentLoaded', function(){
+  const scene = document.querySelector('a-scene');
+  const splash = document.querySelector('#splash');
+  const loading = document.querySelector('#splash .loading');
+  const startButton = document.querySelector('#splash .start-button');
+  const instructions = document.querySelector('#instructions');
+
+  scene.addEventListener('loaded', function(e){
+    setTimeout(() => {
+      // Hide the splash screen and instructions - reveal the start button
+      loading.style.display = 'none';
+      instructions.style.display = 'none';
+      startButton.style.display = 'block';
+      splash.style.backgroundColor = 'rgba(0,0,0, 0.85)';
+      startButton.style.opacity = 1;
+    }, 50);
+    console.log('Scene Loaded!');
+  });
+
+  startButton.addEventListener('click', function(e){
+    // Once start is clicked - hide the preload screen
+    splash.style.display = 'none';
+  });
+});
+
+
+// Handle multiple videos playing
 var mrks = ["i","i","i","i","i"]; // "i" = not visible and "v" = visible
 
 // Video Handler - for when marker is visible or not visible
@@ -7,7 +35,7 @@ AFRAME.registerComponent('vidhandler', {
   },
   init: function(){
     this.video = this.data.video;
-    this.video.play();
+    this.video.muted = true;
   },
   tick: function(){
     if(this.el.object3D.visible == true){
@@ -31,7 +59,6 @@ AFRAME.registerComponent('vidhandler', {
       } else {
         mrks[1] = "i";
       }
-
 
       // -Kiyoshi Marker
       if(kMkr.object3D.visible == true){
